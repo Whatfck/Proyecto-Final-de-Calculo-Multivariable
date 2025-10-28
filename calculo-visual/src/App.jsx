@@ -96,13 +96,7 @@ function App() {
         alignItems: 'start'
       }}>
         {/* Menú lateral - Lado izquierdo */}
-        <div style={{
-          background: '#1a1a1a',
-          borderRadius: '8px',
-          border: '1px solid #ffffff',
-          padding: '1rem',
-          height: '600px'
-        }}>
+        <div>
           <MenuPanel
             onFunctionChange={handleFunctionChange}
             currentFunction={currentFunction}
