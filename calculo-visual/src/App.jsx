@@ -91,11 +91,11 @@ function App() {
         maxWidth: '1400px',
         margin: '0 auto',
         display: 'grid',
-        gridTemplateColumns: '1fr 1fr',
+        gridTemplateColumns: '300px 1fr',
         gap: '2rem',
         alignItems: 'start'
       }}>
-        {/* Panel de funciones - Lado izquierdo */}
+        {/* Menú lateral - Lado izquierdo */}
         <div style={{
           background: '#1a1a1a',
           borderRadius: '8px',
