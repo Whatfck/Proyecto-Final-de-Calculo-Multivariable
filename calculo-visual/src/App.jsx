@@ -44,7 +44,7 @@ function App() {
       position: 'relative',
       overflow: 'hidden'
     }}>
-      {/* Barra lateral blanca delgada */}
+      {/* Barra lateral blanca con íconos de menú */}
       <div style={{
         position: 'fixed',
         left: 0,
@@ -52,8 +52,128 @@ function App() {
         bottom: 0,
         width: '64px',
         backgroundColor: '#ffffff',
-        zIndex: 10
-      }} />
+        zIndex: 10,
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        paddingTop: '20px',
+        gap: '15px'
+      }}>
+        {/* Íconos de menú dentro de la barra blanca */}
+        <button
+          style={{
+            background: 'transparent',
+            border: 'none',
+            color: '#0a0a0a',
+            cursor: 'pointer',
+            fontSize: '24px',
+            padding: '10px',
+            borderRadius: '8px',
+            transition: 'background-color 0.3s ease',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          title="Función"
+        >
+          📊
+        </button>
+
+        <button
+          style={{
+            background: 'transparent',
+            border: 'none',
+            color: '#0a0a0a',
+            cursor: 'pointer',
+            fontSize: '24px',
+            padding: '10px',
+            borderRadius: '8px',
+            transition: 'background-color 0.3s ease',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          title="Resolver"
+        >
+          🧮
+        </button>
+
+        <button
+          style={{
+            background: 'transparent',
+            border: 'none',
+            color: '#0a0a0a',
+            cursor: 'pointer',
+            fontSize: '24px',
+            padding: '10px',
+            borderRadius: '8px',
+            transition: 'background-color 0.3s ease',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          title="Dominio"
+        >
+          🎯
+        </button>
+
+        <button
+          style={{
+            background: 'transparent',
+            border: 'none',
+            color: '#0a0a0a',
+            cursor: 'pointer',
+            fontSize: '24px',
+            padding: '10px',
+            borderRadius: '8px',
+            transition: 'background-color 0.3s ease',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          title="Rango"
+        >
+          📈
+        </button>
+
+        <button
+          style={{
+            background: 'transparent',
+            border: 'none',
+            color: '#0a0a0a',
+            cursor: 'pointer',
+            fontSize: '24px',
+            padding: '10px',
+            borderRadius: '8px',
+            transition: 'background-color 0.3s ease',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          title="Derivadas"
+        >
+          📐
+        </button>
+
+        <button
+          style={{
+            background: 'transparent',
+            border: 'none',
+            color: '#0a0a0a',
+            cursor: 'pointer',
+            fontSize: '24px',
+            padding: '10px',
+            borderRadius: '8px',
+            transition: 'background-color 0.3s ease',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          title="Integrales"
+        >
+          ∫
+        </button>
+      </div>
 
       {/* Header */}
       <header style={{
@@ -103,21 +223,11 @@ function App() {
         maxWidth: '1400px',
         margin: '0 auto',
         display: 'grid',
-        gridTemplateColumns: '80px 1fr',
+        gridTemplateColumns: '1fr',
         gap: '2rem',
         alignItems: 'start',
-        justifyItems: 'start',
-        marginLeft: '4px'
+        marginLeft: '74px'
       }}>
-        {/* Menú lateral - Lado izquierdo */}
-        <div style={{
-          justifySelf: 'start'
-        }}>
-          <MenuPanel
-            onFunctionChange={handleFunctionChange}
-            currentFunction={currentFunction}
-          />
-        </div>
 
         {/* Visualizador 3D - Lado derecho */}
         <div style={{
