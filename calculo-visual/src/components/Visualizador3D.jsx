@@ -96,29 +96,21 @@ function LoadingFallback() {
 
 // Componente principal del visualizador
 export default function Visualizador3D({ expression = 'x^2 + y^2' }) {
-  // Función de mapeo de colores (gradiente agresivo rojizo)
+  // Función de mapeo de colores (gradiente agresivo rojizo - 2 etapas)
   const colorMap = (value) => {
     try {
       const normalizedValue = (value + 5) / 10; // Normalizar entre -5 y 5
       const clampedValue = Math.max(0, Math.min(1, normalizedValue));
 
-      // Gradiente agresivo: negro → rojo oscuro → rojo brillante → blanco rojizo
-      if (clampedValue < 0.25) {
-        // Negro a rojo oscuro (0.0 - 0.25)
-        const ratio = clampedValue * 4;
-        return new THREE.Color().setRGB(ratio * 0.6, 0, 0);
-      } else if (clampedValue < 0.5) {
-        // Rojo oscuro a rojo medio (0.25 - 0.5)
-        const ratio = (clampedValue - 0.25) * 4;
-        return new THREE.Color().setRGB(0.6 + ratio * 0.4, ratio * 0.2, 0);
-      } else if (clampedValue < 0.75) {
-        // Rojo medio a rojo brillante (0.5 - 0.75)
-        const ratio = (clampedValue - 0.5) * 4;
-        return new THREE.Color().setRGB(1.0, 0.2 + ratio * 0.3, ratio * 0.1);
+      // Gradiente agresivo de 2 etapas: negro → blanco rojizo
+      if (clampedValue < 0.5) {
+        // Negro a rojo oscuro (0.0 - 0.5)
+        const ratio = clampedValue * 2;
+        return new THREE.Color().setRGB(ratio * 0.8, ratio * 0.2, ratio * 0.1);
       } else {
-        // Rojo brillante a blanco rojizo (0.75 - 1.0)
-        const ratio = (clampedValue - 0.75) * 4;
-        return new THREE.Color().setRGB(1.0, 0.5 + ratio * 0.5, 0.1 + ratio * 0.4);
+        // Rojo oscuro a blanco rojizo (0.5 - 1.0)
+        const ratio = (clampedValue - 0.5) * 2;
+        return new THREE.Color().setRGB(0.8 + ratio * 0.2, 0.2 + ratio * 0.8, 0.1 + ratio * 0.9);
       }
     } catch (error) {
       return new THREE.Color(0.8, 0, 0); // Rojo oscuro por defecto
