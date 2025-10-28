@@ -214,6 +214,7 @@ function App() {
             __html: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-question-mark-icon lucide-circle-question-mark"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>`
           }}
         />
+
       </div>
 
       {/* Panel lateral rojo para contenido de menú - Flotante */}
@@ -497,7 +498,10 @@ function App() {
               Dominio
             </h3>
             <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6', fontFamily: 'var(--font-text)', fontWeight: 'var(--font-weight-light)' }}>
-              <p>El dominio de la función {currentFunction} es:</p>
+              <p style={{ marginBottom: '15px' }}>
+                <strong>¿Qué es el dominio?</strong> Es el conjunto de valores de entrada (x,y) para los que la función está definida.
+              </p>
+              <p>El dominio de la función <strong>{currentFunction}</strong> es:</p>
               <div style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 padding: '15px',
@@ -508,6 +512,10 @@ function App() {
               }}>
                 <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>Dominio: ℝ²</strong><br />
                 (Todos los números reales para x e y)
+                <br /><br />
+                <em style={{ fontSize: '12px', color: 'rgba(255, 255, 255, 0.7)' }}>
+                  Para funciones con raíces cuadradas, logaritmos, etc., el dominio puede estar restringido.
+                </em>
               </div>
             </div>
           </div>
@@ -519,7 +527,10 @@ function App() {
               Rango
             </h3>
             <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6', fontFamily: 'var(--font-text)', fontWeight: 'var(--font-weight-light)' }}>
-              <p>El rango de la función {currentFunction} depende de su comportamiento:</p>
+              <p style={{ marginBottom: '15px' }}>
+                <strong>¿Qué es el rango?</strong> Es el conjunto de valores de salida (z) que la función puede tomar.
+              </p>
+              <p>El rango de la función <strong>{currentFunction}</strong> se calcula evaluando su comportamiento:</p>
               <div style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 padding: '15px',
@@ -528,8 +539,12 @@ function App() {
                 fontFamily: 'var(--font-text)',
                 fontWeight: 'var(--font-weight-light)'
               }}>
-                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>Rango: Depende de f(x,y)</strong><br />
-                (Se calcula analizando el comportamiento de la función)
+                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>Rango aproximado:</strong><br />
+                Se determina analizando los valores mínimo y máximo que puede alcanzar la función.
+                <br /><br />
+                <em style={{ fontSize: '12px', color: 'rgba(255, 255, 255, 0.7)' }}>
+                  El rango exacto depende del comportamiento específico de cada función.
+                </em>
               </div>
             </div>
           </div>
@@ -541,7 +556,10 @@ function App() {
               Derivadas
             </h3>
             <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6', fontFamily: 'var(--font-text)', fontWeight: 'var(--font-weight-light)' }}>
-              <p>Derivadas parciales de {currentFunction}:</p>
+              <p style={{ marginBottom: '15px' }}>
+                <strong>¿Qué son las derivadas parciales?</strong> Miden cómo cambia la función cuando variamos una variable manteniendo las otras constantes.
+              </p>
+              <p>Derivadas parciales de <strong>{currentFunction}</strong>:</p>
               <div style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 padding: '15px',
@@ -552,7 +570,11 @@ function App() {
               }}>
                 <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>∂f/∂x:</strong> Derivada parcial respecto a x<br />
                 <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>∂f/∂y:</strong> Derivada parcial respecto a y<br />
-                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>∇f:</strong> Gradiente de la función
+                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>∇f:</strong> Gradiente (vector de derivadas parciales)
+                <br /><br />
+                <em style={{ fontSize: '12px', color: 'rgba(255, 255, 255, 0.7)' }}>
+                  Las derivadas indican la pendiente de la función en cada dirección.
+                </em>
               </div>
             </div>
           </div>
@@ -564,7 +586,10 @@ function App() {
               Integrales
             </h3>
             <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6', fontFamily: 'var(--font-text)', fontWeight: 'var(--font-weight-light)' }}>
-              <p>Integrales de {currentFunction}:</p>
+              <p style={{ marginBottom: '15px' }}>
+                <strong>¿Qué son las integrales múltiples?</strong> Calculan áreas, volúmenes y otras magnitudes acumuladas en el plano o espacio.
+              </p>
+              <p>Integrales de <strong>{currentFunction}</strong>:</p>
               <div style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 padding: '15px',
@@ -573,56 +598,18 @@ function App() {
                 fontFamily: 'var(--font-text)',
                 fontWeight: 'var(--font-weight-light)'
               }}>
-                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>∫∫ f(x,y) dx dy:</strong> Integral doble<br />
-                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>∫ f(x,y) dl:</strong> Integral de línea<br />
-                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>Volumen:</strong> ∭ f(x,y,z) dx dy dz
+                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>∫∫ f(x,y) dx dy:</strong> Integral doble (área bajo la superficie)<br />
+                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>∫ f(x,y) dl:</strong> Integral de línea (a lo largo de curvas)<br />
+                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>∭ f(x,y,z) dx dy dz:</strong> Integral triple (volúmenes)
+                <br /><br />
+                <em style={{ fontSize: '12px', color: 'rgba(255, 255, 255, 0.7)' }}>
+                  Las integrales calculan magnitudes acumuladas como áreas y volúmenes.
+                </em>
               </div>
             </div>
           </div>
         )}
 
-        {activeMenu === 'info' && (
-          <div>
-            <h3 style={{ color: '#ffffff', marginBottom: '20px', fontSize: '18px', fontWeight: 'var(--font-weight-bold)', fontFamily: 'var(--font-title)' }}>
-              Información
-            </h3>
-            <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6', fontFamily: 'var(--font-text)', fontWeight: 'var(--font-weight-light)' }}>
-              <h4 style={{ fontWeight: 'var(--font-weight-bold)', marginBottom: '10px' }}>NeoCalc - Visualizador de Cálculo Multivariable</h4>
-              <p style={{ marginBottom: '15px' }}>
-                Una aplicación interactiva para visualizar y calcular conceptos de cálculo multivariable en tiempo real.
-              </p>
-
-              <h5 style={{ fontWeight: 'var(--font-weight-bold)', marginBottom: '8px' }}>Funcionalidades:</h5>
-              <ul style={{ marginBottom: '15px' }}>
-                <li>• Visualización 3D de funciones de dos variables</li>
-                <li>• Cálculo de derivadas parciales</li>
-                <li>• Análisis de dominio y rango</li>
-                <li>• Integrales indefinidas</li>
-                <li>• Mapeo de colores dinámico</li>
-              </ul>
-
-              <h5 style={{ fontWeight: 'var(--font-weight-bold)', marginBottom: '8px' }}>Controles 3D:</h5>
-              <ul style={{ marginBottom: '15px' }}>
-                <li>• <strong>Rotar:</strong> Click izquierdo + arrastrar</li>
-                <li>• <strong>Zoom:</strong> Rueda del mouse</li>
-                <li>• <strong>Pan:</strong> Click derecho + arrastrar</li>
-              </ul>
-
-              <h5 style={{ fontWeight: 'var(--font-weight-bold)', marginBottom: '8px' }}>Tecnologías:</h5>
-              <p>React + Three.js + Math.js</p>
-
-              <div style={{
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                padding: '10px',
-                borderRadius: '4px',
-                marginTop: '15px',
-                fontSize: '12px'
-              }}>
-                <strong>Proyecto Final de Cálculo Multivariable</strong>
-              </div>
-            </div>
-          </div>
-        )}
       </div>
 
       {/* Header */}
