@@ -81,7 +81,7 @@ function App() {
           color: '#ffffff',
           fontFamily: 'system-ui, sans-serif'
         }}>
-          Cálculo Visual Multivariado
+          NeoCalc
         </h1>
 
         {/* Visualizador 3D - 16:9 */}
@@ -123,7 +123,7 @@ function App() {
           marginTop: '2rem',
           fontFamily: 'system-ui, sans-serif'
         }}>
-          Proyecto Final de Cálculo Multivariado @2025
+          NeoCalc - Proyecto Final @2025
         </footer>
       </div>
     </div>
