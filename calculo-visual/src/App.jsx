@@ -110,8 +110,8 @@ function App() {
           borderRadius: '8px',
           boxShadow: '0 0 20px #ffffff',
           overflow: 'hidden',
-          aspectRatio: '16/9',
-          width: '100%'
+          width: '400px',
+          height: '300px'
         }}>
           <Visualizador3D expression={currentFunction} />
         </div>
