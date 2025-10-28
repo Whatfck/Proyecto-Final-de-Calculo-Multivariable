@@ -64,15 +64,26 @@ function Surface({ expression, colorMap }) {
   }, [colors]);
 
   return (
-    <mesh ref={meshRef} geometry={geometry}>
-      <meshStandardMaterial
-        vertexColors
-        side={THREE.DoubleSide}
-        transparent
-        opacity={0.9}
-        wireframe={true}
-      />
-    </mesh>
+    <group>
+      {/* Superficie sólida con colores */}
+      <mesh ref={meshRef} geometry={geometry}>
+        <meshStandardMaterial
+          vertexColors
+          side={THREE.DoubleSide}
+          transparent
+          opacity={0.8}
+        />
+      </mesh>
+      {/* Grid wireframe superpuesto */}
+      <mesh geometry={geometry}>
+        <meshBasicMaterial
+          color="#ffffff"
+          wireframe={true}
+          transparent
+          opacity={0.3}
+        />
+      </mesh>
+    </group>
   );
 }
 
