@@ -1,0 +1,228 @@
+/* Tema oscuro con efectos neón */
+:root {
+  --bg-primary: #0a0a0a;
+  --bg-secondary: #1a1a1a;
+  --text-primary: #ffffff;
+  --text-secondary: #cccccc;
+  --accent-neon: #00ffff;
+  --accent-purple: #8a2be2;
+  --accent-blue: #4169e1;
+  --grid-color: #ffffff;
+  --glow-strength: 0 0 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Efectos de luces de fondo */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--accent-purple) 0%, transparent 70%);
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+body::after {
+  content: '';
+  position: fixed;
+  bottom: 0;
+  right: 0;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, var(--accent-blue) 0%, transparent 70%);
+  opacity: 0.1;
+  pointer-events: none;
+  z-index: -1;
+}
+
+/* Título principal */
+.main-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 300;
+  margin: 2rem 0;
+  text-shadow: var(--glow-strength) var(--accent-neon);
+  letter-spacing: 2px;
+}
+
+/* Layout principal */
+.app-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+.visualizer-section {
+  aspect-ratio: 16/9;
+  background: var(--bg-secondary);
+  border: 1px solid var(--accent-neon);
+  border-radius: 8px;
+  margin: 1rem;
+  box-shadow: var(--glow-strength) var(--accent-neon);
+  overflow: hidden;
+}
+
+.menus-section {
+  flex: 1;
+  padding: 1rem;
+  background: var(--bg-secondary);
+  margin: 1rem;
+  border-radius: 8px;
+  border: 1px solid var(--accent-neon);
+  box-shadow: var(--glow-strength) var(--accent-neon);
+}
+
+/* Barra de menús */
+.menus-bar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+}
+
+.menu-item {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid var(--accent-neon);
+  border-radius: 6px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu-item:hover {
+  background: var(--accent-neon);
+  color: var(--bg-primary);
+  box-shadow: var(--glow-strength) var(--accent-neon);
+}
+
+.menu-item.active {
+  background: var(--accent-neon);
+  color: var(--bg-primary);
+  box-shadow: var(--glow-strength) var(--accent-neon);
+}
+
+/* Contenido de menús */
+.menu-content {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-height: 300px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Footer */
+.footer {
+  text-align: center;
+  padding: 1rem;
+  color: var(--text-secondary);
+  font-size: 0.9rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+  margin-top: auto;
+}
+
+/* Animaciones */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.fade-in {
+  animation: fadeIn 0.5s ease-out;
+}
+
+/* Estilos inline para componentes */
+.menu-content {
+  background: rgba(255, 255, 255, 0.02);
+  border-radius: 8px;
+  padding: 1.5rem;
+  min-height: 300px;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  animation: fadeIn 0.5s ease-out;
+}
+
+.menus-bar {
+  display: flex;
+  gap: 1rem;
+  margin-bottom: 1rem;
+  padding: 0.5rem;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 8px;
+  backdrop-filter: blur(10px);
+  flex-wrap: wrap;
+}
+
+.menu-item {
+  padding: 0.75rem 1.5rem;
+  background: transparent;
+  border: 1px solid var(--accent-neon);
+  border-radius: 6px;
+  color: var(--text-primary);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.menu-item:hover {
+  background: var(--accent-neon);
+  color: var(--bg-primary);
+  box-shadow: var(--glow-strength) var(--accent-neon);
+}
+
+.menu-item.active {
+  background: var(--accent-neon);
+  color: var(--bg-primary);
+  box-shadow: var(--glow-strength) var(--accent-neon);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .main-title {
+    font-size: 2rem;
+  }
+
+  .visualizer-section {
+    margin: 0.5rem;
+  }
+
+  .menus-section {
+    margin: 0.5rem;
+  }
+
+  .menus-bar {
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .menu-item {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+  }
+}
