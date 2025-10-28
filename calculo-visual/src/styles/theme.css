@@ -6,14 +6,14 @@
   --bg-secondary: #1a1a1a;
   --text-primary: #ffffff;
   --text-secondary: #cccccc;
-  --accent-neon: #00ffff;
+  --accent-neon: #00ff00;
   --accent-purple: #8a2be2;
   --accent-blue: #4169e1;
   --grid-color: #ffffff;
   --glow-strength: 0 0 10px;
 
   /* Google Fonts */
-  --font-title: 'Orbitron', monospace;
+  --font-title: 'Lexend', sans-serif;
   --font-body: 'Rajdhani', sans-serif;
 }
 

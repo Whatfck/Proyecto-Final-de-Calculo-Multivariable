@@ -74,10 +74,9 @@ function App() {
         <h1 style={{
           textAlign: 'center',
           fontSize: '2.5rem',
-          fontWeight: 900,
+          fontWeight: 700,
           marginBottom: '2rem',
-          textShadow: '0 0 10px #00ffff',
-          letterSpacing: '3px',
+          letterSpacing: '2px',
           color: '#ffffff',
           fontFamily: 'var(--font-title)',
           textTransform: 'uppercase'
