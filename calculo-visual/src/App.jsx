@@ -90,10 +90,10 @@ function App() {
           height: 'calc(100vw * 9 / 16)',
           maxHeight: '60vh',
           background: '#1a1a1a',
-          border: '1px solid #00ffff',
+          border: '1px solid #00ff00',
           borderRadius: '8px',
           marginBottom: '2rem',
-          boxShadow: '0 0 10px #00ffff',
+          boxShadow: '0 0 20px #00ff00',
           overflow: 'hidden'
         }}>
           <Visualizador3D expression={currentFunction} />
