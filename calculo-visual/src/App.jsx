@@ -49,20 +49,23 @@ function App() {
       position: 'relative',
       overflow: 'hidden'
     }}>
-      {/* Barra lateral negra con íconos de menú */}
+      {/* Barra lateral negra con íconos de menú - Menú flotante */}
       <div style={{
         position: 'fixed',
-        left: 0,
-        top: '72px',
-        bottom: 0,
-        width: '64px',
-        backgroundColor: '#000000',
+        left: '10px',
+        top: '82px',
+        width: 'auto',
+        backgroundColor: 'rgba(0, 0, 0, 0.9)',
+        backdropFilter: 'blur(20px)',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        borderRadius: '12px',
         zIndex: 10,
         display: 'flex',
         flexDirection: 'column',
         alignItems: 'center',
-        paddingTop: '20px',
-        gap: '15px'
+        padding: '15px',
+        gap: '10px',
+        boxShadow: '0 8px 32px rgba(0, 0, 0, 0.3)'
       }}>
         {/* Íconos de menú dentro de la barra negra */}
         <button
@@ -194,14 +197,18 @@ function App() {
       {/* Panel lateral rojo para contenido de menú */}
       <div style={{
         position: 'fixed',
-        left: '64px',
-        top: '80px',
-        bottom: 0,
+        left: '10px',
+        top: '200px',
         width: '300px',
-        backgroundColor: '#dc143c',
+        backgroundColor: 'rgba(220, 20, 60, 0.95)',
+        backdropFilter: 'blur(20px)',
+        border: '1px solid rgba(255, 255, 255, 0.1)',
+        borderRadius: '12px',
         zIndex: 9,
         padding: '20px',
-        overflowY: 'auto'
+        overflowY: 'auto',
+        boxShadow: '0 8px 32px rgba(220, 20, 60, 0.3)',
+        maxHeight: 'calc(100vh - 220px)'
       }}>
         {activeMenu === 'function' && (
           <div>
@@ -435,7 +442,7 @@ function App() {
       <div style={{
         position: 'fixed',
         top: '72px',
-        left: '364px',
+        left: '320px',
         right: 0,
         bottom: 0,
         zIndex: 1
