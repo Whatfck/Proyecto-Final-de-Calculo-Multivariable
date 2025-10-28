@@ -90,7 +90,8 @@ export default function MenuPanel({ onFunctionChange, currentFunction }) {
                     border: '1px solid var(--accent-neon)',
                     borderRadius: '4px',
                     color: 'var(--text-primary)',
-                    fontSize: '1rem'
+                    fontSize: '1rem',
+                    fontFamily: 'var(--font-body)'
                   }}
                 />
               </div>
@@ -231,7 +232,8 @@ export default function MenuPanel({ onFunctionChange, currentFunction }) {
               display: 'flex',
               alignItems: 'center',
               gap: '0.5rem',
-              fontSize: '0.9rem'
+              fontSize: '0.9rem',
+              fontFamily: 'var(--font-body)'
             }}
             onClick={() => setActiveMenu(menu.id)}
           >

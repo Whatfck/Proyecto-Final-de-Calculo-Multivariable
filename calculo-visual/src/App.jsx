@@ -74,12 +74,13 @@ function App() {
         <h1 style={{
           textAlign: 'center',
           fontSize: '2.5rem',
-          fontWeight: 300,
+          fontWeight: 900,
           marginBottom: '2rem',
           textShadow: '0 0 10px #00ffff',
-          letterSpacing: '2px',
+          letterSpacing: '3px',
           color: '#ffffff',
-          fontFamily: 'system-ui, sans-serif'
+          fontFamily: 'var(--font-title)',
+          textTransform: 'uppercase'
         }}>
           NeoCalc
         </h1>
@@ -121,7 +122,9 @@ function App() {
           fontSize: '0.9rem',
           borderTop: '1px solid rgba(255, 255, 255, 0.1)',
           marginTop: '2rem',
-          fontFamily: 'system-ui, sans-serif'
+          fontFamily: 'var(--font-body)',
+          fontWeight: 300,
+          letterSpacing: '1px'
         }}>
           NeoCalc - Proyecto Final @2025
         </footer>

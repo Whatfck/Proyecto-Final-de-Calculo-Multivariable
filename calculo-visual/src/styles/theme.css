@@ -1,4 +1,6 @@
 /* Tema oscuro con efectos neón */
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+
 :root {
   --bg-primary: #0a0a0a;
   --bg-secondary: #1a1a1a;
@@ -9,6 +11,10 @@
   --accent-blue: #4169e1;
   --grid-color: #ffffff;
   --glow-strength: 0 0 10px;
+
+  /* Google Fonts */
+  --font-title: 'Orbitron', monospace;
+  --font-body: 'Rajdhani', sans-serif;
 }
 
 * {
