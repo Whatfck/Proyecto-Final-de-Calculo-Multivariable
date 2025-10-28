@@ -89,36 +89,38 @@ function App() {
       <div style={{
         padding: '20px',
         maxWidth: '1400px',
-        margin: '0 auto'
+        margin: '0 auto',
+        display: 'grid',
+        gridTemplateColumns: '1fr 1fr',
+        gap: '2rem',
+        alignItems: 'start'
       }}>
-
-        {/* Visualizador 3D - 16:9 */}
+        {/* Panel de funciones - Lado izquierdo */}
         <div style={{
-          width: '100%',
-          height: 'calc(100vw * 9 / 16)',
-          maxHeight: '60vh',
           background: '#1a1a1a',
+          borderRadius: '8px',
           border: '1px solid #ffffff',
-          borderRadius: '8px',
-          marginBottom: '2rem',
           boxShadow: '0 0 20px #ffffff',
-          overflow: 'hidden'
-        }}>
-          <Visualizador3D expression={currentFunction} />
-        </div>
-
-        {/* Panel de menús */}
-        <div style={{
-          background: '#1a1a1a',
-          borderRadius: '8px',
-          border: '1px solid #00ffff',
-          boxShadow: '0 0 10px #00ffff',
-          padding: '1.5rem'
+          padding: '1.5rem',
+          height: 'fit-content'
         }}>
           <MenuPanel
             onFunctionChange={handleFunctionChange}
             currentFunction={currentFunction}
           />
+        </div>
+
+        {/* Visualizador 3D - Lado derecho */}
+        <div style={{
+          background: '#1a1a1a',
+          border: '1px solid #ffffff',
+          borderRadius: '8px',
+          boxShadow: '0 0 20px #ffffff',
+          overflow: 'hidden',
+          aspectRatio: '16/9',
+          width: '100%'
+        }}>
+          <Visualizador3D expression={currentFunction} />
         </div>
 
         {/* Footer */}
