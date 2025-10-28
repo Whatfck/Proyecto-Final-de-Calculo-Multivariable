@@ -53,7 +53,7 @@ function App() {
       <div style={{
         position: 'fixed',
         left: 0,
-        top: '80px',
+        top: '72px',
         bottom: 0,
         width: '64px',
         backgroundColor: '#000000',
