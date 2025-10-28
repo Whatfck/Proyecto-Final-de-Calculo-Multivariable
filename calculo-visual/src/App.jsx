@@ -50,7 +50,7 @@ function App() {
         left: 0,
         top: '80px',
         bottom: 0,
-        width: '8px',
+        width: '24px',
         backgroundColor: '#ffffff',
         zIndex: 10
       }} />
