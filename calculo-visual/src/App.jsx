@@ -571,7 +571,6 @@ function App() {
       }}>
         <h1 style={{
           fontSize: '1.8rem',
-          fontWeight: 700,
           margin: 0,
           color: '#ffffff',
           fontFamily: 'var(--font-title)',
