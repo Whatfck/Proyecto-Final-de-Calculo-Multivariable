@@ -119,27 +119,27 @@ export default function Visualizador3D({ expression = 'x^2 + y^2' }) {
     <div style={{ width: '100%', height: '100%', position: 'relative' }}>
       <Suspense fallback={<LoadingFallback />}>
         <Canvas
-          camera={{ position: [8, 8, 8], fov: 60 }}
+          camera={{ position: [5, 5, 5], fov: 75 }}
           style={{ background: 'transparent' }}
           dpr={[1, 2]}
           performance={{ min: 0.5 }}
         >
-          <ambientLight intensity={0.4} />
-          <pointLight position={[10, 10, 10]} intensity={0.8} />
-          <pointLight position={[-10, -10, -10]} intensity={0.4} />
+          <ambientLight intensity={0.6} />
+          <directionalLight position={[10, 10, 10]} intensity={1} />
+          <pointLight position={[-10, -10, -10]} intensity={0.5} />
 
           <Surface expression={expression} colorMap={colorMap} />
 
           {/* Grid blanco */}
           <Grid
             args={[20, 20]}
-            cellSize={1}
+            cellSize={0.5}
             cellThickness={0.5}
             cellColor="#ffffff"
-            sectionSize={5}
+            sectionSize={2}
             sectionThickness={1}
             sectionColor="#ffffff"
-            fadeDistance={30}
+            fadeDistance={25}
             fadeStrength={1}
             followCamera={false}
             infiniteGrid={true}
@@ -150,12 +150,26 @@ export default function Visualizador3D({ expression = 'x^2 + y^2' }) {
             enableZoom={true}
             enableRotate={true}
             maxPolarAngle={Math.PI}
-            minDistance={5}
-            maxDistance={50}
+            minDistance={3}
+            maxDistance={30}
           />
         </Canvas>
       </Suspense>
 
+      {/* Overlay con información */}
+      <div style={{
+        position: 'absolute',
+        top: '10px',
+        left: '10px',
+        background: 'rgba(0, 0, 0, 0.8)',
+        color: '#ffffff',
+        padding: '8px 12px',
+        borderRadius: '4px',
+        fontSize: '0.9rem',
+        border: '1px solid #00ffff'
+      }}>
+        Función: {expression}
+      </div>
     </div>
   );
 }
