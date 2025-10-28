@@ -121,21 +121,6 @@ function App() {
         }}>
           <Visualizador3D expression={currentFunction} />
         </div>
-
-        {/* Footer */}
-        <footer style={{
-          textAlign: 'center',
-          padding: '2rem 0',
-          color: '#cccccc',
-          fontSize: '0.9rem',
-          borderTop: '1px solid rgba(255, 255, 255, 0.1)',
-          marginTop: '2rem',
-          fontFamily: 'var(--font-body)',
-          fontWeight: 300,
-          letterSpacing: '1px'
-        }}>
-          NeoCalc - Proyecto Final @2025
-        </footer>
       </div>
     </div>
   );
