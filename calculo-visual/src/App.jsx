@@ -49,14 +49,14 @@ function App() {
       position: 'relative',
       overflow: 'hidden'
     }}>
-      {/* Barra lateral blanca con íconos de menú */}
+      {/* Barra lateral negra con íconos de menú */}
       <div style={{
         position: 'fixed',
         left: 0,
         top: '80px',
         bottom: 0,
         width: '64px',
-        backgroundColor: '#ffffff',
+        backgroundColor: '#000000',
         zIndex: 10,
         display: 'flex',
         flexDirection: 'column',
@@ -64,12 +64,12 @@ function App() {
         paddingTop: '20px',
         gap: '15px'
       }}>
-        {/* Íconos de menú dentro de la barra blanca */}
+        {/* Íconos de menú dentro de la barra negra */}
         <button
           style={{
-            background: activeMenu === 'function' ? '#dc143c' : 'transparent',
+            background: activeMenu === 'function' ? '#ffffff' : 'transparent',
             border: 'none',
-            color: activeMenu === 'function' ? '#ffffff' : '#0a0a0a',
+            color: activeMenu === 'function' ? '#000000' : '#ffffff',
             cursor: 'pointer',
             fontSize: '20px',
             padding: '10px',
@@ -88,9 +88,9 @@ function App() {
 
         <button
           style={{
-            background: activeMenu === 'calculate' ? '#dc143c' : 'transparent',
+            background: activeMenu === 'calculate' ? '#ffffff' : 'transparent',
             border: 'none',
-            color: activeMenu === 'calculate' ? '#ffffff' : '#0a0a0a',
+            color: activeMenu === 'calculate' ? '#000000' : '#ffffff',
             cursor: 'pointer',
             fontSize: '20px',
             padding: '10px',
@@ -109,9 +109,9 @@ function App() {
 
         <button
           style={{
-            background: activeMenu === 'domain' ? '#dc143c' : 'transparent',
+            background: activeMenu === 'domain' ? '#ffffff' : 'transparent',
             border: 'none',
-            color: activeMenu === 'domain' ? '#ffffff' : '#0a0a0a',
+            color: activeMenu === 'domain' ? '#000000' : '#ffffff',
             cursor: 'pointer',
             fontSize: '20px',
             padding: '10px',
@@ -130,9 +130,9 @@ function App() {
 
         <button
           style={{
-            background: activeMenu === 'range' ? '#dc143c' : 'transparent',
+            background: activeMenu === 'range' ? '#ffffff' : 'transparent',
             border: 'none',
-            color: activeMenu === 'range' ? '#ffffff' : '#0a0a0a',
+            color: activeMenu === 'range' ? '#000000' : '#ffffff',
             cursor: 'pointer',
             fontSize: '20px',
             padding: '10px',
@@ -151,9 +151,9 @@ function App() {
 
         <button
           style={{
-            background: activeMenu === 'derivative' ? '#dc143c' : 'transparent',
+            background: activeMenu === 'derivative' ? '#ffffff' : 'transparent',
             border: 'none',
-            color: activeMenu === 'derivative' ? '#ffffff' : '#0a0a0a',
+            color: activeMenu === 'derivative' ? '#000000' : '#ffffff',
             cursor: 'pointer',
             fontSize: '20px',
             padding: '10px',
@@ -172,9 +172,9 @@ function App() {
 
         <button
           style={{
-            background: activeMenu === 'integral' ? '#dc143c' : 'transparent',
+            background: activeMenu === 'integral' ? '#ffffff' : 'transparent',
             border: 'none',
-            color: activeMenu === 'integral' ? '#ffffff' : '#0a0a0a',
+            color: activeMenu === 'integral' ? '#000000' : '#ffffff',
             cursor: 'pointer',
             fontSize: '24px',
             padding: '10px',
