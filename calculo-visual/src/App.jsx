@@ -175,6 +175,36 @@ function App() {
         </button>
       </div>
 
+      {/* Panel lateral rojo para contenido de menú */}
+      <div style={{
+        position: 'fixed',
+        left: '64px',
+        top: '80px',
+        bottom: 0,
+        width: '300px',
+        backgroundColor: '#dc143c',
+        zIndex: 9,
+        padding: '20px',
+        overflowY: 'auto'
+      }}>
+        <h3 style={{
+          color: '#ffffff',
+          marginBottom: '20px',
+          fontSize: '18px',
+          fontWeight: 'bold'
+        }}>
+          Contenido del Menú
+        </h3>
+        <div style={{
+          color: '#ffffff',
+          fontSize: '14px',
+          lineHeight: '1.6'
+        }}>
+          <p>Selecciona un ícono del menú lateral para ver el contenido aquí.</p>
+          <p>Esta área mostrará los controles y opciones para cada funcionalidad matemática.</p>
+        </div>
+      </div>
+
       {/* Header */}
       <header style={{
         padding: '1rem 2rem',
@@ -226,7 +256,7 @@ function App() {
         gridTemplateColumns: '1fr',
         gap: '2rem',
         alignItems: 'start',
-        marginLeft: '74px'
+        marginLeft: '374px'
       }}>
 
         {/* Visualizador 3D - Lado derecho */}
