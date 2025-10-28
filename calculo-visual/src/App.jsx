@@ -438,14 +438,14 @@ function App() {
         zIndex: -1
       }} />
 
-      {/* Visualizador 3D a pantalla completa */}
+      {/* Visualizador 3D como fondo de toda la página */}
       <div style={{
         position: 'fixed',
         top: '72px',
-        left: '400px',
+        left: 0,
         right: 0,
         bottom: 0,
-        zIndex: 1
+        zIndex: 0
       }}>
         <Visualizador3D expression={currentFunction} />
       </div>
