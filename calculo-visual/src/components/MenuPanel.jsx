@@ -206,48 +206,70 @@ export default function MenuPanel({ onFunctionChange, currentFunction }) {
   };
 
   return (
-    <div>
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: '200px 1fr',
+      gap: '1rem',
+      height: '600px'
+    }}>
+      {/* Barra lateral de navegación */}
       <div style={{
-        display: 'flex',
-        gap: '1rem',
-        marginBottom: '1rem',
-        padding: '0.5rem',
         background: 'rgba(255, 255, 255, 0.05)',
         borderRadius: '8px',
-        backdropFilter: 'blur(10px)',
-        flexWrap: 'wrap'
+        padding: '1rem',
+        border: '1px solid rgba(255, 255, 255, 0.1)'
       }}>
-        {menus.map((menu) => (
-          <button
-            key={menu.id}
-            style={{
-              padding: '0.75rem 1.5rem',
-              background: activeMenu === menu.id ? '#00ffff' : 'transparent',
-              border: '1px solid #00ffff',
-              borderRadius: '6px',
-              color: activeMenu === menu.id ? '#0a0a0a' : '#ffffff',
-              cursor: 'pointer',
-              transition: 'all 0.3s ease',
-              fontWeight: 500,
-              display: 'flex',
-              alignItems: 'center',
-              gap: '0.5rem',
-              fontSize: '0.9rem',
-              fontFamily: 'var(--font-body)'
-            }}
-            onClick={() => setActiveMenu(menu.id)}
-          >
-            <span>{menu.icon}</span>
-            <span>{menu.label}</span>
-          </button>
-        ))}
+        <h3 style={{
+          margin: '0 0 1rem 0',
+          fontSize: '1rem',
+          fontWeight: 500,
+          color: '#ffffff',
+          fontFamily: 'var(--font-body)',
+          textAlign: 'center'
+        }}>
+          Menús
+        </h3>
+        <div style={{
+          display: 'flex',
+          flexDirection: 'column',
+          gap: '0.5rem'
+        }}>
+          {menus.map((menu) => (
+            <button
+              key={menu.id}
+              style={{
+                padding: '0.75rem',
+                background: activeMenu === menu.id ? '#ffffff' : 'transparent',
+                border: '1px solid #ffffff',
+                borderRadius: '6px',
+                color: activeMenu === menu.id ? '#0a0a0a' : '#ffffff',
+                cursor: 'pointer',
+                transition: 'all 0.3s ease',
+                fontWeight: 500,
+                display: 'flex',
+                flexDirection: 'column',
+                alignItems: 'center',
+                gap: '0.25rem',
+                fontSize: '0.8rem',
+                fontFamily: 'var(--font-body)',
+                textAlign: 'center'
+              }}
+              onClick={() => setActiveMenu(menu.id)}
+            >
+              <span style={{ fontSize: '1.2rem' }}>{menu.icon}</span>
+              <span>{menu.label}</span>
+            </button>
+          ))}
+        </div>
       </div>
+
+      {/* Contenido del menú activo */}
       <div style={{
         background: 'rgba(255, 255, 255, 0.02)',
         borderRadius: '8px',
         padding: '1.5rem',
-        minHeight: '300px',
         border: '1px solid rgba(255, 255, 255, 0.1)',
+        overflowY: 'auto',
         animation: 'fadeIn 0.5s ease-out'
       }}>
         {renderMenuContent()}

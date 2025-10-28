@@ -101,8 +101,8 @@ function App() {
           borderRadius: '8px',
           border: '1px solid #ffffff',
           boxShadow: '0 0 20px #ffffff',
-          padding: '1.5rem',
-          height: 'fit-content'
+          padding: '1rem',
+          height: '600px'
         }}>
           <MenuPanel
             onFunctionChange={handleFunctionChange}
