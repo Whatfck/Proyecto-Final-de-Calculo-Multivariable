@@ -44,6 +44,26 @@ function App() {
       position: 'relative',
       overflow: 'hidden'
     }}>
+      {/* Header */}
+      <header style={{
+        padding: '1rem 2rem',
+        borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
+        background: 'rgba(0, 0, 0, 0.8)',
+        backdropFilter: 'blur(10px)'
+      }}>
+        <h1 style={{
+          fontSize: '1.8rem',
+          fontWeight: 700,
+          margin: 0,
+          color: '#ffffff',
+          fontFamily: 'var(--font-title)',
+          textTransform: 'uppercase',
+          letterSpacing: '2px'
+        }}>
+          NeoCalc
+        </h1>
+      </header>
+
       {/* Efectos de luces de fondo */}
       <div style={{
         position: 'fixed',
@@ -71,18 +91,6 @@ function App() {
         maxWidth: '1400px',
         margin: '0 auto'
       }}>
-        <h1 style={{
-          textAlign: 'center',
-          fontSize: '2.5rem',
-          fontWeight: 700,
-          marginBottom: '2rem',
-          letterSpacing: '2px',
-          color: '#ffffff',
-          fontFamily: 'var(--font-title)',
-          textTransform: 'uppercase'
-        }}>
-          NeoCalc
-        </h1>
 
         {/* Visualizador 3D - 16:9 */}
         <div style={{
