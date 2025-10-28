@@ -95,23 +95,20 @@ function LoadingFallback() {
 
 // Componente principal del visualizador
 export default function Visualizador3D({ expression = 'x^2 + y^2' }) {
-  // Función de mapeo de colores (rojo → verde → azul)
+  // Función de mapeo de colores (tonalidades rojizas)
   const colorMap = (value) => {
     try {
       const normalizedValue = (value + 5) / 10; // Normalizar entre -5 y 5
       const clampedValue = Math.max(0, Math.min(1, normalizedValue));
 
-      if (clampedValue < 0.5) {
-        // Rojo a Verde
-        const ratio = clampedValue * 2;
-        return new THREE.Color().setRGB(1 - ratio, ratio, 0);
-      } else {
-        // Verde a Azul
-        const ratio = (clampedValue - 0.5) * 2;
-        return new THREE.Color().setRGB(0, 1 - ratio, ratio);
-      }
+      // Tonalidades rojizas: desde rojo oscuro hasta rojo claro
+      const red = 0.8 + (clampedValue * 0.2); // 0.8 a 1.0
+      const green = clampedValue * 0.3; // 0.0 a 0.3
+      const blue = clampedValue * 0.2; // 0.0 a 0.2
+
+      return new THREE.Color().setRGB(red, green, blue);
     } catch (error) {
-      return new THREE.Color(1, 1, 1); // Blanco por defecto
+      return new THREE.Color(0.8, 0, 0); // Rojo oscuro por defecto
     }
   };
 
