@@ -3,7 +3,7 @@ import Visualizador3D from './components/Visualizador3D';
 import MenuPanel from './components/MenuPanel';
 
 function App() {
-  const [currentFunction, setCurrentFunction] = useState('x^2 + y^2');
+  const [currentFunction, setCurrentFunction] = useState('sin(x) * cos(y)');
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeMenu, setActiveMenu] = useState('function');
 
