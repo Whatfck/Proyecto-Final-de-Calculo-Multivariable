@@ -100,7 +100,6 @@ function App() {
           background: '#1a1a1a',
           borderRadius: '8px',
           border: '1px solid #ffffff',
-          boxShadow: '0 0 20px #ffffff',
           padding: '1rem',
           height: '600px'
         }}>
