@@ -70,6 +70,7 @@ function Surface({ expression, colorMap }) {
         side={THREE.DoubleSide}
         transparent
         opacity={0.9}
+        wireframe={true}
       />
     </mesh>
   );
