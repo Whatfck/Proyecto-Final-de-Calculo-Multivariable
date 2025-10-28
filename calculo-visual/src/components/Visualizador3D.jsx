@@ -96,29 +96,16 @@ function LoadingFallback() {
 
 // Componente principal del visualizador
 export default function Visualizador3D({ expression = 'x^2 + y^2' }) {
-  // Función de mapeo de colores (escala de calor: rojo → naranja → amarillo)
+  // Función de mapeo de colores (gradiente rojo simple)
   const colorMap = (value) => {
     try {
       const normalizedValue = (value + 5) / 10; // Normalizar entre -5 y 5
       const clampedValue = Math.max(0, Math.min(1, normalizedValue));
 
-      // Escala de calor: 0.0-1.0 rojo, 1.0-2.0 naranja, 2.0-3.0 amarillo
-      // Pero como nuestro rango es 0-1, mapeamos proporcionalmente
-      if (clampedValue < 0.33) {
-        // Rojo (0.0 - 1.0 en la escala original)
-        const ratio = clampedValue * 3;
-        return new THREE.Color().setRGB(1.0, ratio * 0.5, 0);
-      } else if (clampedValue < 0.67) {
-        // Naranja (1.0 - 2.0 en la escala original)
-        const ratio = (clampedValue - 0.33) * 3;
-        return new THREE.Color().setRGB(1.0, 0.5 + ratio * 0.5, 0);
-      } else {
-        // Amarillo (2.0 - 3.0 en la escala original)
-        const ratio = (clampedValue - 0.67) * 3;
-        return new THREE.Color().setRGB(1.0, 1.0, ratio);
-      }
+      // Gradiente rojo simple: negro → rojo
+      return new THREE.Color().setRGB(clampedValue, 0, 0);
     } catch (error) {
-      return new THREE.Color(1.0, 0, 0); // Rojo por defecto
+      return new THREE.Color(0.5, 0, 0); // Rojo medio por defecto
     }
   };
 
