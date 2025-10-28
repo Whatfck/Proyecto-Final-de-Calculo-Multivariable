@@ -365,10 +365,35 @@ function App() {
               <button
                 onClick={() => {
                   try {
-                    const result = `Rango: Depende de f(x,y) = ${currentFunction}`;
-                    alert(`Resultado del cálculo:\n\n${result}\n\n(Análisis detallado disponible próximamente)`);
+                    const math = require('mathjs');
+                    // Análisis básico del rango evaluando la función en varios puntos
+                    const testPoints = [
+                      [0, 0], [1, 0], [0, 1], [-1, 0], [0, -1], [1, 1], [-1, -1]
+                    ];
+
+                    let minVal = Infinity;
+                    let maxVal = -Infinity;
+
+                    testPoints.forEach(([x, y]) => {
+                      try {
+                        const val = math.evaluate(currentFunction, { x, y });
+                        if (typeof val === 'number' && isFinite(val)) {
+                          minVal = Math.min(minVal, val);
+                          maxVal = Math.max(maxVal, val);
+                        }
+                      } catch (e) {
+                        // Ignorar puntos que causen errores
+                      }
+                    });
+
+                    let rangeResult = `Rango aproximado: [${minVal.toFixed(2)}, ${maxVal.toFixed(2)}]`;
+                    if (minVal === Infinity || maxVal === -Infinity) {
+                      rangeResult = 'Rango: Análisis limitado (función compleja)';
+                    }
+
+                    alert(`Análisis del rango:\n\n${rangeResult}\n\nEvaluado en puntos de prueba básicos.`);
                   } catch (error) {
-                    alert('Error al calcular el rango');
+                    alert('Error al calcular el rango. Verifica que la función sea válida.');
                   }
                 }}
                 style={{
@@ -416,10 +441,14 @@ function App() {
               <button
                 onClick={() => {
                   try {
-                    const result = `Integral doble de ${currentFunction}:\n\n∫∫ f(x,y) dx dy\n\n(Cálculo numérico próximamente)`;
-                    alert(result);
+                    const math = require('mathjs');
+                    // Cálculo básico de integral definida en un intervalo pequeño
+                    const integralX = math.integral(currentFunction, 'x').toString();
+                    const result = `Integral respecto a x: ∫ ${currentFunction} dx = ${integralX}\n\nPara integrales dobles completas, se requiere definir límites de integración.`;
+
+                    alert(`Cálculo de integrales:\n\n${result}`);
                   } catch (error) {
-                    alert('Error al calcular la integral');
+                    alert('Error al calcular la integral. Verifica que la función sea integrable.');
                   }
                 }}
                 style={{
