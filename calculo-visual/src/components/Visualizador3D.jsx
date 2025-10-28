@@ -156,22 +156,6 @@ export default function Visualizador3D({ expression = 'x^2 + y^2' }) {
         </Canvas>
       </Suspense>
 
-      {/* Overlay con información */}
-      <div style={{
-        position: 'absolute',
-        top: '50%',
-        left: '50%',
-        transform: 'translate(-50%, -50%)',
-        color: '#ffffff',
-        fontSize: '1.2rem',
-        fontFamily: 'var(--font-overlay)',
-        fontWeight: 300,
-        textAlign: 'center',
-        textShadow: '0 0 5px rgba(0, 0, 0, 0.5)',
-        pointerEvents: 'none'
-      }}>
-        {expression}
-      </div>
     </div>
   );
 }
