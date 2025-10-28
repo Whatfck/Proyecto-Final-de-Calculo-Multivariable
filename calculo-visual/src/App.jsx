@@ -618,8 +618,7 @@ function App() {
                 marginTop: '15px',
                 fontSize: '12px'
               }}>
-                <strong>Proyecto Final de Cálculo Multivariable</strong><br />
-                Desarrollado con ❤️ para la exploración matemática
+                <strong>Proyecto Final de Cálculo Multivariable</strong>
               </div>
             </div>
           </div>
