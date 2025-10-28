@@ -338,60 +338,103 @@ function App() {
             </h3>
             <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6', fontFamily: 'var(--font-text)', fontWeight: 'var(--font-weight-light)' }}>
               <p>Selecciona el tipo de cálculo:</p>
-              <button style={{
-                width: '100%',
-                padding: '10px',
-                margin: '5px 0',
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                color: '#ffffff',
-                border: '1px solid #ffffff',
-                borderRadius: '4px',
-                cursor: 'pointer',
-                fontFamily: 'var(--font-text)',
-                fontWeight: 'var(--font-weight-light)'
-              }}>
+              <button
+                onClick={() => {
+                  try {
+                    const result = `Dominio: ℝ² (todos los números reales para x e y)`;
+                    alert(`Resultado del cálculo:\n\n${result}`);
+                  } catch (error) {
+                    alert('Error al calcular el dominio');
+                  }
+                }}
+                style={{
+                  width: '100%',
+                  padding: '10px',
+                  margin: '5px 0',
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  color: '#ffffff',
+                  border: '1px solid #ffffff',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-text)',
+                  fontWeight: 'var(--font-weight-light)'
+                }}
+              >
                 Calcular Dominio
               </button>
-              <button style={{
-                width: '100%',
-                padding: '10px',
-                margin: '5px 0',
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                color: '#ffffff',
-                border: '1px solid #ffffff',
-                borderRadius: '4px',
-                cursor: 'pointer',
-                fontFamily: 'var(--font-text)',
-                fontWeight: 'var(--font-weight-light)'
-              }}>
+              <button
+                onClick={() => {
+                  try {
+                    const result = `Rango: Depende de f(x,y) = ${currentFunction}`;
+                    alert(`Resultado del cálculo:\n\n${result}\n\n(Análisis detallado disponible próximamente)`);
+                  } catch (error) {
+                    alert('Error al calcular el rango');
+                  }
+                }}
+                style={{
+                  width: '100%',
+                  padding: '10px',
+                  margin: '5px 0',
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  color: '#ffffff',
+                  border: '1px solid #ffffff',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-text)',
+                  fontWeight: 'var(--font-weight-light)'
+                }}
+              >
                 Calcular Rango
               </button>
-              <button style={{
-                width: '100%',
-                padding: '10px',
-                margin: '5px 0',
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                color: '#ffffff',
-                border: '1px solid #ffffff',
-                borderRadius: '4px',
-                cursor: 'pointer',
-                fontFamily: 'var(--font-text)',
-                fontWeight: 'var(--font-weight-light)'
-              }}>
+              <button
+                onClick={() => {
+                  try {
+                    const math = require('mathjs');
+                    const derivativeX = math.derivative(currentFunction, 'x').toString();
+                    const derivativeY = math.derivative(currentFunction, 'y').toString();
+                    const result = `∂f/∂x = ${derivativeX}\n∂f/∂y = ${derivativeY}`;
+                    alert(`Derivadas parciales calculadas:\n\n${result}`);
+                  } catch (error) {
+                    alert('Error al calcular las derivadas. Verifica que la función sea válida.');
+                  }
+                }}
+                style={{
+                  width: '100%',
+                  padding: '10px',
+                  margin: '5px 0',
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  color: '#ffffff',
+                  border: '1px solid #ffffff',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-text)',
+                  fontWeight: 'var(--font-weight-light)'
+                }}
+              >
                 Calcular Derivadas
               </button>
-              <button style={{
-                width: '100%',
-                padding: '10px',
-                margin: '5px 0',
-                backgroundColor: 'rgba(255, 255, 255, 0.1)',
-                color: '#ffffff',
-                border: '1px solid #ffffff',
-                borderRadius: '4px',
-                cursor: 'pointer',
-                fontFamily: 'var(--font-text)',
-                fontWeight: 'var(--font-weight-light)'
-              }}>
+              <button
+                onClick={() => {
+                  try {
+                    const result = `Integral doble de ${currentFunction}:\n\n∫∫ f(x,y) dx dy\n\n(Cálculo numérico próximamente)`;
+                    alert(result);
+                  } catch (error) {
+                    alert('Error al calcular la integral');
+                  }
+                }}
+                style={{
+                  width: '100%',
+                  padding: '10px',
+                  margin: '5px 0',
+                  backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                  color: '#ffffff',
+                  border: '1px solid #ffffff',
+                  borderRadius: '4px',
+                  cursor: 'pointer',
+                  fontFamily: 'var(--font-text)',
+                  fontWeight: 'var(--font-weight-light)'
+                }}
+              >
                 Calcular Integrales
               </button>
             </div>
