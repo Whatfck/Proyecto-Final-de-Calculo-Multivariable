@@ -44,12 +44,24 @@ function App() {
       position: 'relative',
       overflow: 'hidden'
     }}>
+      {/* Barra lateral blanca delgada */}
+      <div style={{
+        position: 'fixed',
+        left: 0,
+        top: 0,
+        bottom: 0,
+        width: '4px',
+        backgroundColor: '#ffffff',
+        zIndex: 10
+      }} />
+
       {/* Header */}
       <header style={{
         padding: '1rem 2rem',
         borderBottom: '1px solid rgba(255, 255, 255, 0.1)',
         background: 'rgba(0, 0, 0, 0.8)',
-        backdropFilter: 'blur(10px)'
+        backdropFilter: 'blur(10px)',
+        marginLeft: '4px'
       }}>
         <h1 style={{
           fontSize: '1.8rem',
@@ -94,7 +106,8 @@ function App() {
         gridTemplateColumns: '80px 1fr',
         gap: '2rem',
         alignItems: 'start',
-        justifyItems: 'start'
+        justifyItems: 'start',
+        marginLeft: '4px'
       }}>
         {/* Menú lateral - Lado izquierdo */}
         <div style={{
