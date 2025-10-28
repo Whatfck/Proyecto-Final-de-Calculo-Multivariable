@@ -212,8 +212,8 @@ function App() {
       }}>
         {activeMenu === 'function' && (
           <div>
-            <h3 style={{ color: '#ffffff', marginBottom: '20px', fontSize: '18px', fontWeight: 'bold' }}>
-              📊 Función
+            <h3 style={{ color: '#ffffff', marginBottom: '20px', fontSize: '18px', fontWeight: 'var(--font-weight-bold)', fontFamily: 'var(--font-title)' }}>
+              Función
             </h3>
             <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6' }}>
               <p>Ingrese la función matemática a visualizar:</p>
@@ -230,7 +230,9 @@ function App() {
                   border: '1px solid #ffffff',
                   borderRadius: '4px',
                   color: '#ffffff',
-                  fontSize: '14px'
+                  fontSize: '14px',
+                  fontFamily: 'var(--font-text)',
+                  fontWeight: 'var(--font-weight-light)'
                 }}
               />
               <button
@@ -244,7 +246,8 @@ function App() {
                   border: 'none',
                   borderRadius: '4px',
                   cursor: 'pointer',
-                  fontWeight: 'bold'
+                  fontWeight: 'var(--font-weight-bold)',
+                  fontFamily: 'var(--font-text)'
                 }}
               >
                 Graficar Función
@@ -255,10 +258,10 @@ function App() {
 
         {activeMenu === 'calculate' && (
           <div>
-            <h3 style={{ color: '#ffffff', marginBottom: '20px', fontSize: '18px', fontWeight: 'bold' }}>
-              🧮 Resolver
+            <h3 style={{ color: '#ffffff', marginBottom: '20px', fontSize: '18px', fontWeight: 'var(--font-weight-bold)', fontFamily: 'var(--font-title)' }}>
+              Resolver
             </h3>
-            <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6' }}>
+            <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6', fontFamily: 'var(--font-text)', fontWeight: 'var(--font-weight-light)' }}>
               <p>Selecciona el tipo de cálculo:</p>
               <button style={{
                 width: '100%',
@@ -268,7 +271,9 @@ function App() {
                 color: '#ffffff',
                 border: '1px solid #ffffff',
                 borderRadius: '4px',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                fontFamily: 'var(--font-text)',
+                fontWeight: 'var(--font-weight-light)'
               }}>
                 Calcular Dominio
               </button>
@@ -280,7 +285,9 @@ function App() {
                 color: '#ffffff',
                 border: '1px solid #ffffff',
                 borderRadius: '4px',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                fontFamily: 'var(--font-text)',
+                fontWeight: 'var(--font-weight-light)'
               }}>
                 Calcular Rango
               </button>
@@ -292,7 +299,9 @@ function App() {
                 color: '#ffffff',
                 border: '1px solid #ffffff',
                 borderRadius: '4px',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                fontFamily: 'var(--font-text)',
+                fontWeight: 'var(--font-weight-light)'
               }}>
                 Calcular Derivadas
               </button>
@@ -304,7 +313,9 @@ function App() {
                 color: '#ffffff',
                 border: '1px solid #ffffff',
                 borderRadius: '4px',
-                cursor: 'pointer'
+                cursor: 'pointer',
+                fontFamily: 'var(--font-text)',
+                fontWeight: 'var(--font-weight-light)'
               }}>
                 Calcular Integrales
               </button>
@@ -314,18 +325,20 @@ function App() {
 
         {activeMenu === 'domain' && (
           <div>
-            <h3 style={{ color: '#ffffff', marginBottom: '20px', fontSize: '18px', fontWeight: 'bold' }}>
-              🎯 Dominio
+            <h3 style={{ color: '#ffffff', marginBottom: '20px', fontSize: '18px', fontWeight: 'var(--font-weight-bold)', fontFamily: 'var(--font-title)' }}>
+              Dominio
             </h3>
-            <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6' }}>
+            <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6', fontFamily: 'var(--font-text)', fontWeight: 'var(--font-weight-light)' }}>
               <p>El dominio de la función {currentFunction} es:</p>
               <div style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 padding: '15px',
                 borderRadius: '4px',
-                marginTop: '10px'
+                marginTop: '10px',
+                fontFamily: 'var(--font-text)',
+                fontWeight: 'var(--font-weight-light)'
               }}>
-                <strong>Dominio: ℝ²</strong><br />
+                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>Dominio: ℝ²</strong><br />
                 (Todos los números reales para x e y)
               </div>
             </div>
@@ -334,18 +347,20 @@ function App() {
 
         {activeMenu === 'range' && (
           <div>
-            <h3 style={{ color: '#ffffff', marginBottom: '20px', fontSize: '18px', fontWeight: 'bold' }}>
-              📈 Rango
+            <h3 style={{ color: '#ffffff', marginBottom: '20px', fontSize: '18px', fontWeight: 'var(--font-weight-bold)', fontFamily: 'var(--font-title)' }}>
+              Rango
             </h3>
-            <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6' }}>
+            <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6', fontFamily: 'var(--font-text)', fontWeight: 'var(--font-weight-light)' }}>
               <p>El rango de la función {currentFunction} depende de su comportamiento:</p>
               <div style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 padding: '15px',
                 borderRadius: '4px',
-                marginTop: '10px'
+                marginTop: '10px',
+                fontFamily: 'var(--font-text)',
+                fontWeight: 'var(--font-weight-light)'
               }}>
-                <strong>Rango: Depende de f(x,y)</strong><br />
+                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>Rango: Depende de f(x,y)</strong><br />
                 (Se calcula analizando el comportamiento de la función)
               </div>
             </div>
@@ -354,20 +369,22 @@ function App() {
 
         {activeMenu === 'derivative' && (
           <div>
-            <h3 style={{ color: '#ffffff', marginBottom: '20px', fontSize: '18px', fontWeight: 'bold' }}>
-              📐 Derivadas
+            <h3 style={{ color: '#ffffff', marginBottom: '20px', fontSize: '18px', fontWeight: 'var(--font-weight-bold)', fontFamily: 'var(--font-title)' }}>
+              Derivadas
             </h3>
-            <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6' }}>
+            <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6', fontFamily: 'var(--font-text)', fontWeight: 'var(--font-weight-light)' }}>
               <p>Derivadas parciales de {currentFunction}:</p>
               <div style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 padding: '15px',
                 borderRadius: '4px',
-                marginTop: '10px'
+                marginTop: '10px',
+                fontFamily: 'var(--font-text)',
+                fontWeight: 'var(--font-weight-light)'
               }}>
-                <strong>∂f/∂x:</strong> Derivada parcial respecto a x<br />
-                <strong>∂f/∂y:</strong> Derivada parcial respecto a y<br />
-                <strong>∇f:</strong> Gradiente de la función
+                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>∂f/∂x:</strong> Derivada parcial respecto a x<br />
+                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>∂f/∂y:</strong> Derivada parcial respecto a y<br />
+                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>∇f:</strong> Gradiente de la función
               </div>
             </div>
           </div>
@@ -375,20 +392,22 @@ function App() {
 
         {activeMenu === 'integral' && (
           <div>
-            <h3 style={{ color: '#ffffff', marginBottom: '20px', fontSize: '18px', fontWeight: 'bold' }}>
-              ∫ Integrales
+            <h3 style={{ color: '#ffffff', marginBottom: '20px', fontSize: '18px', fontWeight: 'var(--font-weight-bold)', fontFamily: 'var(--font-title)' }}>
+              Integrales
             </h3>
-            <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6' }}>
+            <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6', fontFamily: 'var(--font-text)', fontWeight: 'var(--font-weight-light)' }}>
               <p>Integrales de {currentFunction}:</p>
               <div style={{
                 backgroundColor: 'rgba(255, 255, 255, 0.1)',
                 padding: '15px',
                 borderRadius: '4px',
-                marginTop: '10px'
+                marginTop: '10px',
+                fontFamily: 'var(--font-text)',
+                fontWeight: 'var(--font-weight-light)'
               }}>
-                <strong>∫∫ f(x,y) dx dy:</strong> Integral doble<br />
-                <strong>∫ f(x,y) dl:</strong> Integral de línea<br />
-                <strong>Volumen:</strong> ∭ f(x,y,z) dx dy dz
+                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>∫∫ f(x,y) dx dy:</strong> Integral doble<br />
+                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>∫ f(x,y) dl:</strong> Integral de línea<br />
+                <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>Volumen:</strong> ∭ f(x,y,z) dx dy dz
               </div>
             </div>
           </div>
@@ -410,7 +429,8 @@ function App() {
           color: '#ffffff',
           fontFamily: 'var(--font-title)',
           textTransform: 'uppercase',
-          letterSpacing: '2px'
+          letterSpacing: '2px',
+          fontWeight: 'var(--font-weight-bold)'
         }}>
           NeoCalc
         </h1>

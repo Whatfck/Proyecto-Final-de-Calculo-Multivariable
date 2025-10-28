@@ -1,5 +1,5 @@
 /* Tema oscuro con efectos neón */
-@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lexend+Giga:wght@300;700&display=swap');
 
 :root {
   --bg-primary: #0a0a0a;
@@ -12,10 +12,11 @@
   --grid-color: #ffffff;
   --glow-strength: 0 0 10px;
 
-  /* Google Fonts */
-  --font-title: 'Lexend', sans-serif;
-  --font-overlay: 'Lexend Giga', sans-serif;
-  --font-body: 'Rajdhani', sans-serif;
+  /* Google Fonts - Lexend Giga */
+  --font-text: 'Lexend Giga', sans-serif;
+  --font-title: 'Lexend Giga', sans-serif;
+  --font-weight-light: 300;
+  --font-weight-bold: 700;
 }
 
 * {
