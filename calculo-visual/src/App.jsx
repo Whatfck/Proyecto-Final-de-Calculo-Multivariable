@@ -193,6 +193,27 @@ function App() {
             __html: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-integral-icon lucide-integral"><path d="M11.5 3H20v18"/><path d="M6.5 21H4V3h7.5"/><path d="M6.5 12.5h11"/></svg>`
           }}
         />
+
+        <button
+          style={{
+            background: activeMenu === 'info' ? '#ffffff' : 'transparent',
+            border: 'none',
+            color: activeMenu === 'info' ? '#000000' : '#ffffff',
+            cursor: 'pointer',
+            fontSize: '20px',
+            padding: '10px',
+            borderRadius: '8px',
+            transition: 'all 0.3s ease',
+            display: 'flex',
+            alignItems: 'center',
+            justifyContent: 'center'
+          }}
+          onClick={() => handleMenuClick('info')}
+          title="Info"
+          dangerouslySetInnerHTML={{
+            __html: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-circle-question-mark-icon lucide-circle-question-mark"><circle cx="12" cy="12" r="10"/><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"/><path d="M12 17h.01"/></svg>`
+          }}
+        />
       </div>
 
       {/* Panel lateral rojo para contenido de menú - Flotante */}
@@ -555,6 +576,50 @@ function App() {
                 <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>∫∫ f(x,y) dx dy:</strong> Integral doble<br />
                 <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>∫ f(x,y) dl:</strong> Integral de línea<br />
                 <strong style={{ fontWeight: 'var(--font-weight-bold)' }}>Volumen:</strong> ∭ f(x,y,z) dx dy dz
+              </div>
+            </div>
+          </div>
+        )}
+
+        {activeMenu === 'info' && (
+          <div>
+            <h3 style={{ color: '#ffffff', marginBottom: '20px', fontSize: '18px', fontWeight: 'var(--font-weight-bold)', fontFamily: 'var(--font-title)' }}>
+              Información
+            </h3>
+            <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6', fontFamily: 'var(--font-text)', fontWeight: 'var(--font-weight-light)' }}>
+              <h4 style={{ fontWeight: 'var(--font-weight-bold)', marginBottom: '10px' }}>NeoCalc - Visualizador de Cálculo Multivariable</h4>
+              <p style={{ marginBottom: '15px' }}>
+                Una aplicación interactiva para visualizar y calcular conceptos de cálculo multivariable en tiempo real.
+              </p>
+
+              <h5 style={{ fontWeight: 'var(--font-weight-bold)', marginBottom: '8px' }}>Funcionalidades:</h5>
+              <ul style={{ marginBottom: '15px' }}>
+                <li>• Visualización 3D de funciones de dos variables</li>
+                <li>• Cálculo de derivadas parciales</li>
+                <li>• Análisis de dominio y rango</li>
+                <li>• Integrales indefinidas</li>
+                <li>• Mapeo de colores dinámico</li>
+              </ul>
+
+              <h5 style={{ fontWeight: 'var(--font-weight-bold)', marginBottom: '8px' }}>Controles 3D:</h5>
+              <ul style={{ marginBottom: '15px' }}>
+                <li>• <strong>Rotar:</strong> Click izquierdo + arrastrar</li>
+                <li>• <strong>Zoom:</strong> Rueda del mouse</li>
+                <li>• <strong>Pan:</strong> Click derecho + arrastrar</li>
+              </ul>
+
+              <h5 style={{ fontWeight: 'var(--font-weight-bold)', marginBottom: '8px' }}>Tecnologías:</h5>
+              <p>React + Three.js + Math.js</p>
+
+              <div style={{
+                backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                padding: '10px',
+                borderRadius: '4px',
+                marginTop: '15px',
+                fontSize: '12px'
+              }}>
+                <strong>Proyecto Final de Cálculo Multivariable</strong><br />
+                Desarrollado con ❤️ para la exploración matemática
               </div>
             </div>
           </div>
