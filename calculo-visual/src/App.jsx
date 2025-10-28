@@ -91,7 +91,7 @@ function App() {
         maxWidth: '1400px',
         margin: '0 auto',
         display: 'grid',
-        gridTemplateColumns: '300px 1fr',
+        gridTemplateColumns: '80px 1fr',
         gap: '2rem',
         alignItems: 'start'
       }}>

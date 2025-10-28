@@ -214,16 +214,6 @@ export default function MenuPanel({ onFunctionChange, currentFunction }) {
     }}>
       {/* Barra lateral de navegación */}
       <div>
-        <h3 style={{
-          margin: '0 0 1rem 0',
-          fontSize: '1rem',
-          fontWeight: 500,
-          color: '#ffffff',
-          fontFamily: 'var(--font-body)',
-          textAlign: 'center'
-        }}>
-          Menús
-        </h3>
         <div style={{
           display: 'flex',
           flexDirection: 'column',
@@ -242,17 +232,16 @@ export default function MenuPanel({ onFunctionChange, currentFunction }) {
                 transition: 'all 0.3s ease',
                 fontWeight: 500,
                 display: 'flex',
-                flexDirection: 'column',
                 alignItems: 'center',
-                gap: '0.25rem',
-                fontSize: '0.8rem',
-                fontFamily: 'var(--font-body)',
-                textAlign: 'center'
+                justifyContent: 'center',
+                fontSize: '1.2rem',
+                width: '100%',
+                aspectRatio: '1/1'
               }}
               onClick={() => setActiveMenu(menu.id)}
+              title={menu.label}
             >
-              <span style={{ fontSize: '1.2rem' }}>{menu.icon}</span>
-              <span>{menu.label}</span>
+              <span>{menu.icon}</span>
             </button>
           ))}
         </div>
