@@ -431,30 +431,16 @@ function App() {
         zIndex: -1
       }} />
 
+      {/* Visualizador 3D a pantalla completa */}
       <div style={{
-        padding: '20px',
-        maxWidth: '1400px',
-        margin: '0 auto',
-        display: 'grid',
-        gridTemplateColumns: '1fr',
-        gap: '2rem',
-        alignItems: 'start',
-        marginLeft: '374px'
+        position: 'fixed',
+        top: '72px',
+        left: '364px',
+        right: 0,
+        bottom: 0,
+        zIndex: 1
       }}>
-
-        {/* Visualizador 3D - Lado derecho */}
-        <div style={{
-          background: '#1a1a1a',
-          border: '1px solid #ffffff',
-          borderRadius: '8px',
-          boxShadow: '0 0 20px #ffffff',
-          overflow: 'hidden',
-          width: '400px',
-          height: '300px',
-          justifySelf: 'end'
-        }}>
-          <Visualizador3D expression={currentFunction} />
-        </div>
+        <Visualizador3D expression={currentFunction} />
       </div>
     </div>
   );
