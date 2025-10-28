@@ -48,9 +48,9 @@ function App() {
       <div style={{
         position: 'fixed',
         left: 0,
-        top: 0,
+        top: '80px',
         bottom: 0,
-        width: '4px',
+        width: '8px',
         backgroundColor: '#ffffff',
         zIndex: 10
       }} />
