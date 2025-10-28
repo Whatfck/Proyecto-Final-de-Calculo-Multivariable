@@ -179,7 +179,7 @@ function App() {
             border: 'none',
             color: activeMenu === 'integral' ? '#000000' : '#ffffff',
             cursor: 'pointer',
-            fontSize: '24px',
+            fontSize: '20px',
             padding: '10px',
             borderRadius: '8px',
             transition: 'all 0.3s ease',
@@ -189,9 +189,10 @@ function App() {
           }}
           onClick={() => handleMenuClick('integral')}
           title="Integrales"
-        >
-          ∫
-        </button>
+          dangerouslySetInnerHTML={{
+            __html: `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-integral-icon lucide-integral"><path d="M11.5 3H20v18"/><path d="M6.5 21H4V3h7.5"/><path d="M6.5 12.5h11"/></svg>`
+          }}
+        />
       </div>
 
       {/* Panel lateral rojo para contenido de menú - Flotante */}
