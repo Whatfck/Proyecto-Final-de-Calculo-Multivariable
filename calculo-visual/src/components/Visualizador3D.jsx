@@ -96,16 +96,20 @@ function LoadingFallback() {
 
 // Componente principal del visualizador
 export default function Visualizador3D({ expression = 'x^2 + y^2' }) {
-  // Función de mapeo de colores (gradiente rojo simple)
+  // Función de mapeo de colores (gradiente lineal rojo → amarillo)
   const colorMap = (value) => {
     try {
       const normalizedValue = (value + 5) / 10; // Normalizar entre -5 y 5
       const clampedValue = Math.max(0, Math.min(1, normalizedValue));
 
-      // Gradiente rojo simple: negro → rojo
-      return new THREE.Color().setRGB(clampedValue, 0, 0);
+      // Gradiente lineal rojo → amarillo: (1,0,0) → (1,1,0)
+      const red = 1.0; // Siempre máximo
+      const green = clampedValue; // De 0 a 1
+      const blue = 0; // Siempre 0
+
+      return new THREE.Color().setRGB(red, green, blue);
     } catch (error) {
-      return new THREE.Color(0.5, 0, 0); // Rojo medio por defecto
+      return new THREE.Color(1.0, 0.5, 0); // Naranja por defecto
     }
   };
 
