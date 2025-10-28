@@ -93,10 +93,13 @@ function App() {
         display: 'grid',
         gridTemplateColumns: '80px 1fr',
         gap: '2rem',
-        alignItems: 'start'
+        alignItems: 'start',
+        justifyItems: 'start'
       }}>
         {/* Menú lateral - Lado izquierdo */}
-        <div>
+        <div style={{
+          justifySelf: 'start'
+        }}>
           <MenuPanel
             onFunctionChange={handleFunctionChange}
             currentFunction={currentFunction}
@@ -111,7 +114,8 @@ function App() {
           boxShadow: '0 0 20px #ffffff',
           overflow: 'hidden',
           width: '400px',
-          height: '300px'
+          height: '300px',
+          justifySelf: 'end'
         }}>
           <Visualizador3D expression={currentFunction} />
         </div>
