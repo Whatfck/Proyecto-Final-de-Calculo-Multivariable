@@ -216,7 +216,7 @@ function App() {
             <h3 style={{ color: '#ffffff', marginBottom: '20px', fontSize: '18px', fontWeight: 'var(--font-weight-bold)', fontFamily: 'var(--font-title)' }}>
               Función
             </h3>
-            <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6' }}>
+            <div style={{ color: '#ffffff', fontSize: '14px', lineHeight: '1.6', fontFamily: 'var(--font-text)', fontWeight: 'var(--font-weight-light)' }}>
               <p>Ingrese la función matemática a visualizar:</p>
               <input
                 type="text"
@@ -253,6 +253,80 @@ function App() {
               >
                 Graficar Función
               </button>
+
+              <div style={{ marginTop: '20px', padding: '15px', backgroundColor: 'rgba(255, 255, 255, 0.05)', borderRadius: '4px' }}>
+                <p style={{ fontWeight: 'var(--font-weight-bold)', marginBottom: '10px' }}>Funciones para probar:</p>
+                <div style={{ display: 'flex', flexDirection: 'column', gap: '8px' }}>
+                  <button
+                    onClick={() => handleFunctionChange('x^2 + y^2')}
+                    style={{
+                      padding: '8px',
+                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                      color: '#ffffff',
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      borderRadius: '4px',
+                      cursor: 'pointer',
+                      fontSize: '12px',
+                      fontFamily: 'var(--font-text)',
+                      fontWeight: 'var(--font-weight-light)',
+                      textAlign: 'left'
+                    }}
+                  >
+                    x² + y² (Parabolóide)
+                  </button>
+                  <button
+                    onClick={() => handleFunctionChange('sin(x) * cos(y)')}
+                    style={{
+                      padding: '8px',
+                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                      color: '#ffffff',
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      borderRadius: '4px',
+                      cursor: 'pointer',
+                      fontSize: '12px',
+                      fontFamily: 'var(--font-text)',
+                      fontWeight: 'var(--font-weight-light)',
+                      textAlign: 'left'
+                    }}
+                  >
+                    sin(x) × cos(y) (Onda)
+                  </button>
+                  <button
+                    onClick={() => handleFunctionChange('exp(-(x^2 + y^2))')}
+                    style={{
+                      padding: '8px',
+                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                      color: '#ffffff',
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      borderRadius: '4px',
+                      cursor: 'pointer',
+                      fontSize: '12px',
+                      fontFamily: 'var(--font-text)',
+                      fontWeight: 'var(--font-weight-light)',
+                      textAlign: 'left'
+                    }}
+                  >
+                    e^(-(x² + y²)) (Gaussiana)
+                  </button>
+                  <button
+                    onClick={() => handleFunctionChange('(x^2/4) - (y^2/9)')}
+                    style={{
+                      padding: '8px',
+                      backgroundColor: 'rgba(255, 255, 255, 0.1)',
+                      color: '#ffffff',
+                      border: '1px solid rgba(255, 255, 255, 0.3)',
+                      borderRadius: '4px',
+                      cursor: 'pointer',
+                      fontSize: '12px',
+                      fontFamily: 'var(--font-text)',
+                      fontWeight: 'var(--font-weight-light)',
+                      textAlign: 'left'
+                    }}
+                  >
+                    (x²/4) - (y²/9) (Hipérbola)
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
         )}
