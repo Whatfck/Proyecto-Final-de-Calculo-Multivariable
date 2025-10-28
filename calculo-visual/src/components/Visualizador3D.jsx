@@ -65,22 +65,22 @@ function Surface({ expression, colorMap }) {
 
   return (
     <group>
-      {/* Superficie sólida con colores */}
+      {/* Superficie sólida con colores rojizos */}
       <mesh ref={meshRef} geometry={geometry}>
         <meshStandardMaterial
           vertexColors
           side={THREE.DoubleSide}
           transparent
-          opacity={0.8}
+          opacity={0.9}
         />
       </mesh>
-      {/* Grid wireframe superpuesto */}
+      {/* Grid wireframe sutil en blanco */}
       <mesh geometry={geometry}>
         <meshBasicMaterial
           color="#ffffff"
           wireframe={true}
           transparent
-          opacity={0.3}
+          opacity={0.15}
         />
       </mesh>
     </group>
