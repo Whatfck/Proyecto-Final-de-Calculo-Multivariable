@@ -194,11 +194,11 @@ function App() {
         </button>
       </div>
 
-      {/* Panel lateral rojo para contenido de menú */}
+      {/* Panel lateral rojo para contenido de menú - Flotante */}
       <div style={{
         position: 'fixed',
-        left: '10px',
-        top: '200px',
+        left: '90px',
+        top: '82px',
         width: '300px',
         backgroundColor: 'rgba(220, 20, 60, 0.95)',
         backdropFilter: 'blur(20px)',
@@ -208,7 +208,7 @@ function App() {
         padding: '20px',
         overflowY: 'auto',
         boxShadow: '0 8px 32px rgba(220, 20, 60, 0.3)',
-        maxHeight: 'calc(100vh - 220px)'
+        maxHeight: 'calc(100vh - 102px)'
       }}>
         {activeMenu === 'function' && (
           <div>
@@ -442,7 +442,7 @@ function App() {
       <div style={{
         position: 'fixed',
         top: '72px',
-        left: '320px',
+        left: '400px',
         right: 0,
         bottom: 0,
         zIndex: 1
