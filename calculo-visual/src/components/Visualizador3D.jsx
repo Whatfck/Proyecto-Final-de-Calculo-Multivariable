@@ -130,8 +130,140 @@ function LoadingFallback() {
   );
 }
 
+// Componente para mostrar la curva de restricción
+function ConstraintCurve({ constraint, constraintValue, range }) {
+  if (!constraint) return null;
+
+  // Detectar tipo de restricción
+  const cleanConstraint = constraint.replace(/\s/g, '');
+
+  // Círculo: x^2 + y^2 - r^2 = 0
+  if (cleanConstraint.includes('x^2') && cleanConstraint.includes('y^2') && !cleanConstraint.includes('x^2/') && !cleanConstraint.includes('y^2/')) {
+    let radius = 1;
+    const match = cleanConstraint.match(/-(\d+(?:\.\d+)?)/);
+    if (match) {
+      radius = Math.sqrt(parseFloat(match[1]));
+    }
+
+    return (
+      <mesh position={[0, 0, 0]}>
+        <ringGeometry args={[Math.max(0.1, radius - 0.02), radius + 0.02, 64]} />
+        <meshBasicMaterial color="#ff0000" transparent opacity={0.8} side={THREE.DoubleSide} />
+      </mesh>
+    );
+  }
+
+  // Línea: ax + by + c = 0
+  const lineMatch = cleanConstraint.match(/^([+-]?\d*\*?x)?([+-]?\d*\*?y)?([+-]?\d+)?$/);
+  if (lineMatch && (cleanConstraint.includes('x') || cleanConstraint.includes('y'))) {
+    // Parsear la ecuación lineal
+    let a = 0, b = 0, c = 0;
+
+    // Extraer coeficientes (simplificado)
+    const terms = cleanConstraint.split(/([+-])/).filter(t => t && t !== '+' && t !== '-');
+    for (const term of terms) {
+      if (term.includes('x')) {
+        const coef = term.replace('x', '').replace('*', '') || '1';
+        a = parseFloat((term.startsWith('-') ? '-' : '') + coef) || 1;
+      } else if (term.includes('y')) {
+        const coef = term.replace('y', '').replace('*', '') || '1';
+        b = parseFloat((term.startsWith('-') ? '-' : '') + coef) || 1;
+      } else if (!isNaN(parseFloat(term))) {
+        c = parseFloat(term);
+      }
+    }
+
+    // Si es una línea válida (no ambos coeficientes cero)
+    if (Math.abs(a) > 0.001 || Math.abs(b) > 0.001) {
+      const points = [];
+      const xMin = -range * 1.5;
+      const xMax = range * 1.5;
+
+      if (Math.abs(b) > 0.001) { // y = mx + k
+        const m = -a / b;
+        const k = -c / b;
+        points.push(new THREE.Vector3(xMin, m * xMin + k, 0));
+        points.push(new THREE.Vector3(xMax, m * xMax + k, 0));
+      } else { // línea vertical x = constante
+        const xConst = -c / a;
+        points.push(new THREE.Vector3(xConst, -range * 1.5, 0));
+        points.push(new THREE.Vector3(xConst, range * 1.5, 0));
+      }
+
+      const geometry = new THREE.BufferGeometry().setFromPoints(points);
+
+      return (
+        <line>
+          <bufferGeometry attach="geometry" {...geometry} />
+          <lineBasicMaterial attach="material" color="#ff0000" linewidth={3} />
+        </line>
+      );
+    }
+  }
+
+  // Para otros tipos de restricciones, no mostrar visualización
+  return null;
+}
+
+// Componente para mostrar el campo de gradientes
+function GradientField({ expression, range, showGradientField }) {
+  if (!showGradientField) return null;
+
+  const arrows = useMemo(() => {
+    try {
+      const derivativeX = math.derivative(expression, 'x');
+      const derivativeY = math.derivative(expression, 'y');
+
+      const arrowList = [];
+      const step = range / 3; // 7x7 grid of arrows
+      const scale = step * 0.15; // scale factor for arrow length (even smaller)
+
+      for (let i = -4; i <= 4; i++) {
+        for (let j = -4; j <= 4; j++) {
+          const x = i * step;
+          const y = j * step;
+
+          try {
+            const z = math.evaluate(expression, { x, y });
+            const gradX = math.evaluate(derivativeX.toString(), { x, y });
+            const gradY = math.evaluate(derivativeY.toString(), { x, y });
+
+            // Position at surface
+            const position = new THREE.Vector3(x, y, z);
+
+            // Direction of gradient (normalized)
+            const length = Math.sqrt(gradX * gradX + gradY * gradY);
+            if (length > 0.01) { // avoid zero gradients
+              const direction = new THREE.Vector3(gradX, gradY, 0).normalize();
+
+              // Create arrow helper
+              const arrow = new THREE.ArrowHelper(direction, position, length * scale, 0xffffff, length * scale * 0.3, length * scale * 0.15);
+              arrowList.push(arrow);
+            }
+          } catch (e) {
+            // Skip points where evaluation fails
+          }
+        }
+      }
+
+      return arrowList;
+    } catch (error) {
+      console.error('Error creating gradient field:', error);
+      return [];
+    }
+  }, [expression, range, showGradientField]);
+
+  return (
+    <group>
+      {arrows.map((arrow, index) => (
+        <primitive key={index} object={arrow} />
+      ))}
+    </group>
+  );
+}
+
 // Componente principal del visualizador
-export default function Visualizador3D({ expression = 'x^2 + y^2', onSurfaceClick, params }) {
+export default function Visualizador3D({ expression = 'x^2 + y^2', onSurfaceClick, params, constraint, constraintValue, showGradientField }) {
   const range = params?.range || 5;
   const resolution = params?.resolution || 50;
   const showGrid = params?.showGrid !== false;
@@ -217,7 +349,7 @@ export default function Visualizador3D({ expression = 'x^2 + y^2', onSurfaceClic
     <div style={{ width: '100%', height: '100%', position: 'relative' }}>
       <Suspense fallback={<LoadingFallback />}>
         <Canvas
-          camera={{ position: [8, 8, 8], fov: 60 }}
+          camera={{ position: [10, 0, 0], fov: 60 }}
           style={{ background: 'transparent' }}
           dpr={[1, 2]}
           performance={{ min: 0.5 }}
@@ -228,8 +360,14 @@ export default function Visualizador3D({ expression = 'x^2 + y^2', onSurfaceClic
 
           <Surface expression={expression} colorMap={colorMap} range={range} resolution={resolution} />
 
+          {/* Curva de restricción */}
+          <ConstraintCurve constraint={constraint} constraintValue={constraintValue} range={range} />
+
           {/* Click handler */}
           {onSurfaceClick && <ClickHandler onSurfaceClick={onSurfaceClick} />}
+
+          {/* Campo de gradientes (al final para que esté superpuesto) */}
+          <GradientField expression={expression} range={range} showGradientField={showGradientField} />
 
 
           {/* Grid blanco - condicional */}
@@ -246,6 +384,7 @@ export default function Visualizador3D({ expression = 'x^2 + y^2', onSurfaceClic
               fadeStrength={1}
               followCamera={false}
               infiniteGrid={true}
+              rotation={[-Math.PI / 2, 0, 0]}
             />
           )}
 

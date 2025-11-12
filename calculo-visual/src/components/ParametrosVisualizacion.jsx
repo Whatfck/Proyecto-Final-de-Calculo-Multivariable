@@ -5,6 +5,7 @@ export default function ParametrosVisualizacion({ is2D, onParamsChange, currentP
   const [resolution, setResolution] = useState(currentParams?.resolution || 50);
   const [showGrid, setShowGrid] = useState(currentParams?.showGrid !== false);
   const [colorScheme, setColorScheme] = useState(currentParams?.colorScheme || 'default');
+  const [showGradientField, setShowGradientField] = useState(currentParams?.showGradientField || false);
 
   const handleParamChange = (param, value) => {
     const newParams = {
@@ -12,6 +13,7 @@ export default function ParametrosVisualizacion({ is2D, onParamsChange, currentP
       resolution,
       showGrid,
       colorScheme,
+      showGradientField,
       [param]: value
     };
 
@@ -28,6 +30,9 @@ export default function ParametrosVisualizacion({ is2D, onParamsChange, currentP
         break;
       case 'colorScheme':
         setColorScheme(value);
+        break;
+      case 'showGradientField':
+        setShowGradientField(value);
         break;
       default:
         break;
@@ -126,6 +131,24 @@ export default function ParametrosVisualizacion({ is2D, onParamsChange, currentP
                   }}
                 />
                 <span style={{ fontWeight: 'var(--font-weight-bold)' }}>Mostrar grid de referencia</span>
+              </label>
+            </div>
+
+            {/* Mostrar campo de gradientes */}
+            <div style={{ marginBottom: '15px' }}>
+              <label style={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}>
+                <input
+                  type="checkbox"
+                  checked={showGradientField}
+                  onChange={(e) => handleParamChange('showGradientField', e.target.checked)}
+                  style={{
+                    marginRight: '10px',
+                    width: '16px',
+                    height: '16px',
+                    accentColor: '#ffffff'
+                  }}
+                />
+                <span style={{ fontWeight: 'var(--font-weight-bold)' }}>Mostrar campo de gradientes</span>
               </label>
             </div>
 
@@ -238,6 +261,7 @@ export default function ParametrosVisualizacion({ is2D, onParamsChange, currentP
               <>
                 <li><strong>Grid:</strong> Muestra líneas de referencia en el plano XY</li>
                 <li><strong>Colores:</strong> Esquemas de color para representar valores Z</li>
+                <li><strong>Campo de gradientes:</strong> Vectores que muestran la dirección del gradiente</li>
               </>
             )}
           </ul>
